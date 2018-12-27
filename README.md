@@ -38,11 +38,11 @@ python GrabScreen.py
 ## Acknowledgments
 
 * Prudhvi Raj Dachapally (https://arxiv.org/ftp/arxiv/papers/1706/1706.01509.pdf)
-*
+
 * Ian J. Goodfellow (https://arxiv.org/pdf/1302.4389v3.pdf) & (https://www.kaggle.com/c/facial-keypoints-detector)
 * David Warde-Farley
 * Mehdi Mirza
 * Aaron Courville
 * Yoshua Bengio
-*
+
 * Harrison Kinsley (https://www.youtube.com/user/sentdex)
