@@ -1,1 +1,45 @@
-#Emotion Recognition
+# Emotion Recognition
+
+This is an attempt to detect emotion based on facial features. The model determines whether the person is Happy, Angry, Sad, Disgusted, Afraid, Surprised or Neutral. The model has three convolutional layers connected to three fully connected layers. The model is trained on a dataset of 4172 images. Currently, the model is deployed via screen grab which detects a portion of the screen and takes it as input.
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+Make sure you have the following installed (or the latest version):
+
+```
+Python 3.6
+Numpy 1.15.4
+Pandas 0.23.4
+OpenCV2 3.4.4
+Torch 1.0.0
+TorchVision 0.2.1
+```
+
+### Installing
+
+Simply fork notebook into your local directory.
+
+## Deployment
+
+Assuming
+
+
+## Authors
+
+* **Prince Mallari** - (https://github.com/pmallari)
+
+## Acknowledgments
+
+* Prudhvi Raj Dachapally (https://arxiv.org/ftp/arxiv/papers/1706/1706.01509.pdf)
+*
+* Ian J. Goodfellow (https://arxiv.org/pdf/1302.4389v3.pdf) & (https://www.kaggle.com/c/facial-keypoints-detector)
+* David Warde-Farley
+* Mehdi Mirza
+* Aaron Courville
+* Yoshua Bengio
+*
+* Harrison Kinsley (https://www.youtube.com/user/sentdex)
