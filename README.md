@@ -30,6 +30,8 @@ Assuming you have all necessary modules installed. Through your command prompt, 
 ```
 python GrabScreen.py
 ```
+A window would open mirroring a portion of your screen. Simply move the image over that portion of the screen and the predicted emotion is shown on the upper left.
+For best performance, let the face occupy the entire window.
 
 ## Authors
 
