@@ -25,8 +25,11 @@ Simply fork notebook into your local directory.
 
 ## Deployment
 
-Assuming
+Assuming you have all necessary modules installed. Through your command prompt, move to the local repository and run the command:
 
+```
+python GrabScreen.py
+```
 
 ## Authors
 
