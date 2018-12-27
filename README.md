@@ -2,6 +2,8 @@
 
 This is an attempt to detect emotion based on facial features. The model determines whether the person is Happy, Angry, Sad, Disgusted, Afraid, Surprised or Neutral. The model has three convolutional layers connected to three fully connected layers. The model is trained on a dataset of 4172 images. Currently, the model is deployed via screen grab which detects a portion of the screen and takes it as input.
 
+![]demo.gif
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
