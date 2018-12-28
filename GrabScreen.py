@@ -6,6 +6,9 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from cnn_model import Net
+import random
+random.seed(42)
+
 
 
 Emotion = {0:'Anger',
@@ -27,24 +30,35 @@ def image_to_tensor(img):
 	return torch.Tensor(img.reshape(1,1,48,48))
 
 model = Net()
-model.load_state_dict(torch.load('model.pth'))
+model.load_state_dict(torch.load('models/model_12272018.pth'))
 
 curr_emotion = "Neutral"
+emotion_ave = []
 last_time = time.time()
+
 while(True):
-	screen = np.array(ImageGrab.grab(bbox = (300, 300, 800, 800)))
+	#Grabs image from screen
+	screen = np.array(ImageGrab.grab(bbox = (300, 300, 500, 500)))
 	processed_img = cv2.cvtColor(screen, cv2.COLOR_BGR2RGB)
 	new_screen = process_img(screen)
 
+	# Convert iamge to tensor and predict the emotion
 	x = new_screen
 	x = image_to_tensor(x)
 	output= model(x)
 	_, pred = torch.max(output, 1)
 
+	# Gets the mode of the emotion taken within one second
+	# This reduces the randomness of the output
 	if (time.time() - last_time) > 1:
-		print(Emotion[int(pred)])
-		curr_emotion = Emotion[int(pred)]
+		curr_emotion = Emotion[max(set(emotion_ave), key = emotion_ave.count)]
+		print(curr_emotion)
+		emotion_ave = []
 		last_time = time.time()
+	else:
+		emotion_ave.append(int(pred))
+
+	# Show image and prediction
 	cv2.putText(processed_img, curr_emotion, (0,40), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255,255,255))
 	cv2.imshow('window2', processed_img)
 	#print('Frame rate of {:.3f}s.'.format(1/(time.time() - last_time)))
