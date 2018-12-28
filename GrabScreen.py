@@ -27,7 +27,7 @@ def image_to_tensor(img):
 	return torch.Tensor(img.reshape(1,1,48,48))
 
 model = Net()
-model.load_state_dict(torch.load('model.pth'))
+model.load_state_dict(torch.load('model_12272018.pth'))
 
 curr_emotion = "Neutral"
 last_time = time.time()
