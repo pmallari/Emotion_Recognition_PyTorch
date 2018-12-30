@@ -1,10 +1,9 @@
 import numpy as np
-from PIL import ImageGrab, ImageDraw, ImageFont
+import os
+from PIL import ImageGrab
 import cv2
 import time
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
 from cnn_model import Net
 import random
 random.seed(42)
@@ -30,7 +29,8 @@ def image_to_tensor(img):
 	return torch.Tensor(img.reshape(1,1,48,48))
 
 model = Net()
-model.load_state_dict(torch.load('models/model_12272018.pth'))
+dir_path = os.path.dirname(os.path.realpath(__file__))
+model.load_state_dict(torch.load(dir_path + '/models/current_model.pth'))
 
 curr_emotion = "Neutral"
 emotion_ave = []
@@ -59,7 +59,7 @@ while(True):
 		emotion_ave.append(int(pred))
 
 	# Show image and prediction
-	cv2.putText(processed_img, curr_emotion, (0,40), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255,255,255))
+	cv2.putText(processed_img, curr_emotion, (0, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 255))
 	cv2.imshow('window2', processed_img)
 	#print('Frame rate of {:.3f}s.'.format(1/(time.time() - last_time)))
 	# cv2.imshow('window', cv2.cvtColor(screen, cv2.COLOR_BGR2RGB)) #Original Screen
